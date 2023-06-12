@@ -15,5 +15,7 @@ Rails.application.routes.draw do
     end
   end
   resource :relationships, only: [:create, :destroy]
+  # get 'search' => 'searches#search'
+  resources :searches, only: [:index]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
