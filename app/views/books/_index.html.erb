@@ -18,6 +18,7 @@
         <td><%= book.body %></td>
         <td><%= render 'favorites/favorite_icon', book: book %></td>
         <td>コメント数：<%= book.book_comments.count %></td>
+        <td>閲覧人数<%= book.viewcounts.count %></td>
       </tr>
     <% end %>
   </tbody>

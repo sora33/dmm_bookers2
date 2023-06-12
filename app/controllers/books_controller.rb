@@ -2,12 +2,16 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
+    @viewcount = Viewcount.find_or_initialize_by(user: current_user, book: @book)
+    if @viewcount.new_record?
+      @viewcount.save!
+    end
     @new_book = Book.new
   end
 
   def index
     @book = Book.new
-    @books = Book.all
+    @books = Book.popular_in_past_week
   end
 
   def create
