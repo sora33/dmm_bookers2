@@ -1,0 +1,14 @@
+<div class="card mb-2" id="comment-<%= comment.id %>">
+  <div class="card-body">
+    <p class="card-text"><%= comment.content %></p>
+    <p class="card-text">
+      <small class="text-muted">
+        <%= image_tag comment.user.get_profile_image, size:'50x50' %>
+        <span class="mx-2"><%= comment.user.name %></span>
+        <% if comment.user == current_user %>
+          <%= link_to 'Delete', book_book_comment_path(comment.book, comment), method: :delete, data: { confirm: 'Are you sure?' }, remote: true, class: 'btn btn-danger' %>
+        <% end %>
+      </small>
+    </p>
+  </div>
+</div>
